@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>م. إبراهيم | مهندس ميكاترونيكس ومحاضر ذكاء اصطناعي</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Tajawal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            accent: '#06b6d4', // Cyan accent for tech vibe
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-effect {
+            box-shadow: 0 0 35px -5px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Toast Notification (Custom alert instead of standard alert) -->
+    <div id="toast" class="fixed bottom-5 left-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <span id="toast-message">تم إرسال رسالتك بنجاح!</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-black bg-gradient-to-r from-cyan-400 to-indigo-500 bg-clip-text text-transparent">
+                م. إبراهيم
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+                <a href="#about" class="hover:text-cyan-400 transition">عني</a>
+                <a href="#skills" class="hover:text-cyan-400 transition">المهارات</a>
+                <a href="#projects" class="hover:text-cyan-400 transition">المشاريع والأبحاث</a>
+                <a href="#teaching" class="hover:text-cyan-400 transition">التعليم والمحاضرات</a>
+                <a href="#github-guide" class="hover:text-cyan-400 transition text-cyan-400"><i class="fa-brands fa-github ml-1"></i> دليل جيت هب</a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-gradient-to-r from-cyan-500 to-indigo-600 text-slate-950 font-bold px-6 py-2.5 rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-0.5">
+                    تواصل معي
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-cyan-400">عني</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-cyan-400">المهارات</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-cyan-400">المشاريع والأبحاث</a>
+            <a href="#teaching" class="block py-2 text-slate-300 hover:text-cyan-400">التعليم والمحاضرات</a>
+            <a href="#github-guide" class="block py-2 text-cyan-400">دليل جيت هب</a>
+            <a href="#contact" class="block text-center mt-3 bg-gradient-to-r from-cyan-500 to-indigo-600 text-slate-950 font-bold py-2.5 rounded-xl">تواصل معي</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <!-- Background Glow Blobs -->
+        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-sm font-semibold">
+                        <i class="fa-solid fa-microchip animate-pulse"></i> مهندس ميكاترونيكس ومحاضر ذكاء اصطناعي
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
+                        أهلاً، أنا <span class="bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">إبراهيم</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        أدمج بين دقة هندسة الميكاترونيكس وعالم الذكاء الاصطناعي اللامحدود. أسعى لابتكار أنظمة ذكية روبوتية ومشاركة المعرفة مع الجيل القادم من المطورين والمهندسين.
+                    </p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects" class="bg-gradient-to-r from-cyan-500 to-indigo-600 text-slate-950 font-bold px-8 py-3.5 rounded-xl shadow-lg hover:opacity-90 transition flex items-center gap-2">
+                            <span>استكشف أعمالي</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                        <a href="#contact" class="glass-card hover:bg-slate-800 text-slate-200 font-bold px-8 py-3.5 rounded-xl transition flex items-center gap-2">
+                            <span>تواصل مهني</span>
+                            <i class="fa-solid fa-envelope text-cyan-400"></i>
+                        </a>
+                    </div>
+                    <!-- Social Links -->
+                    <div class="flex justify-center lg:justify-start gap-4 pt-6 text-xl text-slate-400">
+                        <a href="https://github.com" target="_blank" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center hover:text-cyan-400 hover:border-cyan-500/50 transition">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center hover:text-cyan-400 hover:border-cyan-500/50 transition">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:ibrahim@example.com" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center hover:text-cyan-400 hover:border-cyan-500/50 transition">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-indigo-600 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                        <div class="relative glass-card p-8 rounded-3xl glow-effect space-y-6">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <span class="text-xs text-slate-400 font-mono">ibrahim_portfolio.py</span>
+                            </div>
+                            <div class="space-y-3 font-mono text-sm text-slate-300">
+                                <p><span class="text-cyan-400">class</span> <span class="text-yellow-400">MechatronicsAIEngineer</span>:</p>
+                                <p class="pr-4"><span class="text-cyan-400">def</span> <span class="text-purple-400">__init__</span>(self):</p>
+                                <p class="pr-8">self.name = <span class="text-emerald-400">"إبراهيم"</span></p>
+                                <p class="pr-8">self.role = <span class="text-emerald-400">"محاضر AI & مهندس ميكاترونيكس"</span></p>
+                                <p class="pr-8">self.passion = <span class="text-emerald-400">"روبوتات ذكية + التعليم"</span></p>
+                                <p class="pr-4"><span class="text-cyan-400">def</span> <span class="text-purple-400">build_future</span>(self):</p>
+                                <p class="pr-8"><span class="text-cyan-400">return</span> <span class="text-emerald-400">"Innovation & Automation"</span></p>
+                            </div>
+                            <div class="pt-2 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                                <span>الحالة: متاح للاستشارات</span>
+                                <span class="flex items-center gap-1 text-emerald-400 font-semibold"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> نشط</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 border-t border-slate-900 bg-slate-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black">نبذة تعريفية</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 mx-auto rounded-full"></div>
+                <p class="text-slate-400 text-lg">الجسور التي تربط بين العتاد الميكانيكي والبرمجيات الذكية</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="glass-card p-8 rounded-3xl space-y-6">
+                    <h3 class="text-2xl font-bold text-cyan-400 flex items-center gap-3">
+                        <i class="fa-solid fa-user-gear"></i> رحلتي المهنية والأكاديمية
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        أنا مهندس ميكاترونيكس شغوف بتطوير الأنظمة الآلية والتحكم المتقدم، ومحاضر معتمد في مجالات الذكاء الاصطناعي وتعلم الآلة. أؤمن أن المستقبل يكمن في دمج الحسابات الذكية (AI) مع الحركة الفيزيائية الدقيقة (Robotics & Mechatronics).
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        خلال مسيرتي، قمت بتدريب المئات من الطلاب والمهندسين في مجالات الرؤية الحاسوبية، الشبكات العصبية، وأنظمة التحكم المبرمج PLC، بالإضافة إلى تصميم وتصنيع مشاريع هندسية متكاملة.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass-card p-6 rounded-2xl text-center space-y-2">
+                        <div class="text-4xl font-black text-cyan-400">+٥</div>
+                        <div class="text-sm text-slate-400">سنوات خبرة هندسية</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl text-center space-y-2">
+                        <div class="text-4xl font-black text-indigo-400">+١٠٠٠</div>
+                        <div class="text-sm text-slate-400">طالب تم تدريبهم</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl text-center space-y-2">
+                        <div class="text-4xl font-black text-purple-400">+٢٠</div>
+                        <div class="text-sm text-slate-400">مشروع ميكاترونيكس و AI</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl text-center space-y-2">
+                        <div class="text-4xl font-black text-emerald-400">١٠٠٪</div>
+                        <div class="text-sm text-slate-400">شغف بالابتكار</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black">المهارات التقنية</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 mx-auto rounded-full"></div>
+                <p class="text-slate-400 text-lg">تخصص مزدوج يجمع بين الهاردوير والذكاء الاصطناعي</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Mechatronics Skills -->
+                <div class="glass-card p-8 rounded-3xl space-y-6">
+                    <h3 class="text-xl font-bold flex items-center gap-3 text-cyan-400">
+                        <i class="fa-solid fa-robot"></i> هندسة الميكاترونيكس والتحكم
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>أنظمة التحكم والـ PLC</span>
+                                <span class="text-cyan-400 font-mono">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-500 to-indigo-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>التصميم الميكانيكي (SolidWorks / CAD)</span>
+                                <span class="text-cyan-400 font-mono">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-500 to-indigo-500 h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>أنظمة الأنظمة المدمجة (Arduino & ESP32)</span>
+                                <span class="text-cyan-400 font-mono">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-500 to-indigo-500 h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>حسابات الروبوتات الحركية (Kinematics)</span>
+                                <span class="text-cyan-400 font-mono">80%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-500 to-indigo-500 h-full rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Programming Skills -->
+                <div class="glass-card p-8 rounded-3xl space-y-6">
+                    <h3 class="text-xl font-bold flex items-center gap-3 text-indigo-400">
+                        <i class="fa-solid fa-brain"></i> الذكاء الاصطناعي والبرمجة
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Python & Machine Learning</span>
+                                <span class="text-indigo-400 font-mono">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>الرؤية الحاسوبية (Computer Vision / OpenCV)</span>
+                                <span class="text-indigo-400 font-mono">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>TensorFlow & PyTorch</span>
+                                <span class="text-indigo-400 font-mono">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>النماذج اللغوية الكبيرة (LLMs & Generative AI)</span>
+                                <span class="text-indigo-400 font-mono">88%</span>
+                            </div>
+                            <div class="w-full bg-spacer bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 border-t border-slate-900 bg-slate-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black">المشاريع البارزة</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 mx-auto rounded-full"></div>
+                <p class="text-slate-400 text-lg">نماذج لأبرز أعمالي التطبيقية في الروبوتات والذكاء الاصطناعي</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between hover:border-cyan-500/40 transition group">
+                    <div class="p-6 space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">نظام رؤية حاسوبية لفرز المنتجات</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            نظام متكامل يدمج كاميرا ذكية مع خوارزميات Deep Learning لفرز المنتجات الصناعية على خطوط الإنتاج بسرعة ودقة فائقة.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-cyan-400">Python</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-cyan-400">OpenCV</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-cyan-400">YOLOv8</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800 flex justify-between items-center text-sm">
+                        <span class="text-slate-400">تطبيق صناعي</span>
+                        <a href="https://github.com" target="_blank" class="text-cyan-400 hover:underline flex items-center gap-1">الكود المصدري <i class="fa-solid fa-arrow-left text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between hover:border-indigo-500/40 transition group">
+                    <div class="p-6 space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">ذراع روبوتي متحكم به بالذكاء الاصطناعي</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            تصميم وبرمجة ذراع روبوتي (4DOF) مع خوارزميات حركة عكسية وتحكم عبر متحكمات ESP32 وتطبيق ويب تفاعلي.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-indigo-400">C++</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-indigo-400">SolidWorks</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-indigo-400">Kinematics</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800 flex justify-between items-center text-sm">
+                        <span class="text-slate-400">هاردوير + سوفتوير</span>
+                        <a href="https://github.com" target="_blank" class="text-indigo-400 hover:underline flex items-center gap-1">الكود المصدري <i class="fa-solid fa-arrow-left text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between hover:border-purple-500/40 transition group">
+                    <div class="p-6 space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">منصة تعليمية تفاعلية للذكاء الاصطناعي</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            سلسلة محاضرات ودروس تفاعلية مبسطة لتعليم أساسيات الشبكات العصبية وتطبيقات بايثون للمهندسين المبتدئين.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-purple-400">Education</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-purple-400">AI Courses</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-purple-400">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800 flex justify-between items-center text-sm">
+                        <span class="text-slate-400">تعليم وتدريب</span>
+                        <a href="https://github.com" target="_blank" class="text-purple-400 hover:underline flex items-center gap-1">استعراض الدورات <i class="fa-solid fa-arrow-left text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching & Lectures Section -->
+    <section id="teaching" class="py-20 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black">المحاضرات والورش التدريبية</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 mx-auto rounded-full"></div>
+                <p class="text-slate-400 text-lg">نشر المعرفة الأكاديمية والمهنية للشباب والمهندسين</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">محاضر معتمد في الذكاء الاصطناعي</h3>
+                            <span class="text-xs text-slate-400">دورات تدريبية متخصصة ومعسكرات برمجية</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        تقديم دورات شاملة في تعلم الآلة (Machine Learning)، معالجة اللغات الطبيعية (NLP)، وتحليل البيانات المتقدم باستخدام مكتبات بايثون القياسية.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">ورش عمل هندسة الميكاترونيكس</h3>
+                            <span class="text-xs text-slate-400">تطبيقات عملية وورش تخرج</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        الإشراف على مشاريع التخرج للطلاب وربط المفاهيم النظرية في الإلكترونيات وأنظمة التحكم بتطبيقات واقعية ومستدامة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Guide Section -->
+    <section id="github-guide" class="py-20 border-t border-slate-900 bg-slate-900/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl space-y-6 glow-effect border-cyan-500/30">
+                <div class="flex items-center gap-3 text-cyan-400">
+                    <i class="fa-brands fa-github text-3xl"></i>
+                    <h3 class="text-2xl font-bold">دليل رفع موقعك على GitHub Pages</h3>
+                </div>
+                <p class="text-slate-300 leading-relaxed">
+                    يا مهندس إبراهيم، لرفع هذا الموقع وجعله متاحاً عبر الإنترنت مجاناً باسم نطاق (<code class="bg-slate-800 text-cyan-400 px-2 py-0.5 rounded font-mono text-sm">ibrahim.github.io</code>)، اتبع الخطوات البسيطة التالية:
+                </p>
+                <div class="space-y-4 text-sm text-slate-300 font-medium">
+                    <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-slate-950 font-bold flex items-center justify-center shrink-0">١</span>
+                        <p>قم بإنشاء مستودع جديد على جيت هب باسم <code class="bg-slate-800 text-cyan-400 px-2 py-0.5 rounded font-mono">username.github.io</code> أو أي اسم تريده (مثلاً <code class="bg-slate-800 text-cyan-400 px-2 py-0.5 rounded font-mono">my-portfolio</code>).</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-slate-950 font-bold flex items-center justify-center shrink-0">٢</span>
+                        <p>احفظ هذا الكود في ملف باسم <code class="bg-slate-800 text-cyan-400 px-2 py-0.5 rounded font-mono">index.html</code> واقْلمه داخل المستودع (اضغط على Upload files أو استخدم الأوامر).</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-slate-950 font-bold flex items-center justify-center shrink-0">٣</span>
+                        <p>من إعدادات المستودع (<span class="text-cyan-400 font-bold">Settings</span>)، انتقل إلى قسم (<span class="text-cyan-400 font-bold">Pages</span>).</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-slate-950 font-bold flex items-center justify-center shrink-0">٤</span>
+                        <p>اختر الفرع <code class="bg-slate-800 text-cyan-400 px-2 py-0.5 rounded font-mono">main</code> أو <code class="bg-slate-800 text-cyan-400 px-2 py-0.5 rounded font-mono">master</code> واضغط <span class="text-cyan-400 font-bold">Save</span>، ومبروك عليك الموقع الرائع!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 border-t border-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black">تواصل معي</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 mx-auto rounded-full"></div>
+                <p class="text-slate-400 text-lg">يسعدني تلقي استفساراتكم أو عروض التعاون المهني والأكاديمي</p>
+            </div>
+
+            <div class="glass-card p-8 sm:p-12 rounded-3xl">
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-slate-300">الاسم الكريم</label>
+                            <input type="text" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-cyan-500 transition" placeholder="أدخل اسمك...">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-slate-300">البريد الإلكتروني</label>
+                            <input type="email" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-cyan-500 transition" placeholder="name@example.com">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-slate-300">الرسالة أو الموضوع</label>
+                        <textarea rows="4" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-cyan-500 transition" placeholder="اكتب تفاصيل استشارتك أو رسالتك هنا..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-indigo-600 text-slate-950 font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition flex items-center justify-center gap-2">
+                        <span>إرسال الرسالة</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-900 text-center text-slate-500 text-sm space-y-4">
+        <div class="flex justify-center gap-6 text-lg">
+            <a href="https://github.com" target="_blank" class="hover:text-cyan-400 transition"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="hover:text-cyan-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:ibrahim@example.com" class="hover:text-cyan-400 transition"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p>© 2026 م. إبراهيم. جميع الحقوق محفوظة. صُمم بشغف للميكاترونيكس والذكاء الاصطناعي.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Toast -->
+    <script>
+        // Toggle Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Handle Form Submission with Custom Toast (No alert() used)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const toast = document.getElementById('toast');
+            
+            // Show Toast
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Reset Form
+            document.getElementById('contact-form').reset();
+
+            // Hide Toast after 4 seconds
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
